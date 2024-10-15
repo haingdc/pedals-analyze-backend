@@ -4,7 +4,7 @@ import data from "./api/data.json" with { type: "json" };
 // import routeStaticFilesFrom from "./util/routeStaticFilesFrom.ts";
 // @deno-types="@types/express"
 import express from "npm:express"; // Sử dụng npm: prefix
-
+import cors from "npm:cors";
 
 // const router = new Router();
 
@@ -36,6 +36,12 @@ import express from "npm:express"; // Sử dụng npm: prefix
 // await app.listen({ port: 8000 });
 
 const app = express();
+
+// Sử dụng middleware CORS
+app.use(cors({
+  origin: "https://www.example.com/", // Thay đổi thành miền của bạn
+  methods: ["GET", "POST", "PUT", "DELETE"], // Các phương thức HTTP được phép
+}));
 
 app.get("/", (req, res) => {
   res.send("Welcome to the Dinosaur API!");
