@@ -1,0 +1,12 @@
+{
+  "tasks": {
+    "start": "deno run --allow-net --allow-read --allow-env --unstable --watch main.ts"
+  },
+  "imports": {
+    "@oak/oak": "jsr:@oak/oak@^17.1.0",
+    "@tajpouria/cors": "jsr:@tajpouria/cors@^1.2.1",
+    "@types/express": "npm:@types/express@^5.0.0",
+    "express": "npm:express@^5.0.1",
+    "react-router-dom": "npm:react-router-dom@^6.27.0"
+  }
+}
