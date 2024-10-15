@@ -37,11 +37,19 @@ import cors from "npm:cors";
 
 const app = express();
 
+// Cấu hình CORS
+const corsOptions = {
+  origin: [
+      "https://www.example.com",
+      "https://pedals-analyze-joyney.deno.dev",
+      "http://localhost:3000" // Thêm localhost để phát triển cục bộ
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type"],
+};
+
 // Sử dụng middleware CORS
-app.use(cors({
-  origin: "https://www.example.com", // Thay đổi thành miền của bạn
-  methods: ["GET", "POST", "PUT", "DELETE"], // Các phương thức HTTP được phép
-}));
+app.use(cors(corsOptions));
 
 app.get("/", (req, res) => {
   res.send("Welcome to the Dinosaur API!");
