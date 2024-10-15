@@ -39,7 +39,7 @@ const app = express();
 
 // Sử dụng middleware CORS
 app.use(cors({
-  origin: "https://www.example.com/", // Thay đổi thành miền của bạn
+  origin: "https://www.example.com", // Thay đổi thành miền của bạn
   methods: ["GET", "POST", "PUT", "DELETE"], // Các phương thức HTTP được phép
 }));
 
