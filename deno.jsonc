@@ -8,5 +8,13 @@
     "@types/express": "npm:@types/express@^5.0.0",
     "express": "npm:express@^5.0.1",
     "react-router-dom": "npm:react-router-dom@^6.27.0"
+  },
+  "deploy": {
+    "project": "6487ff3f-b495-4ffc-ba46-382bc88a8ad5",
+    "exclude": [
+      "**/node_modules"
+    ],
+    "include": [],
+    "entrypoint": "main.ts"
   }
 }
