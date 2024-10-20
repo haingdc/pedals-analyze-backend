@@ -1,14 +1,19 @@
 {
   "tasks": {
-    "start": "deno run --allow-net --allow-read --allow-env --unstable --watch main.ts"
+    "start": "deno run --env='env/local.env' --allow-net --allow-read --allow-env --unstable --watch main.ts",
+    "start:remote": "deno run --env='env/.env' --allow-net --allow-read --allow-env --unstable --watch main.ts",
+    "lint": "deno lint --fix",
+    "format": "deno fmt"
   },
   "imports": {
     "@oak/oak": "jsr:@oak/oak@^17.1.0",
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.2",
     "@tajpouria/cors": "jsr:@tajpouria/cors@^1.2.1",
     "@types/express": "npm:@types/express@^5.0.0",
     "cors": "npm:cors@^2.8.5",
     "express": "npm:express@^5.0.1",
-    "react-router-dom": "npm:react-router-dom@^6.27.0"
+    "ts-results": "npm:ts-results@^3.3.0",
+    "tslib": "npm:tslib@^2.8.0" // Cần để ts-results hoạt động
   },
   "deploy": {
     "project": "6487ff3f-b495-4ffc-ba46-382bc88a8ad5",
