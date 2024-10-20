@@ -7,6 +7,7 @@
   },
   "imports": {
     "@oak/oak": "jsr:@oak/oak@^17.1.0",
+    "@pedal-pedal/types": "jsr:@pedal-pedal/types@^0.1.1",
     "@std/dotenv": "jsr:@std/dotenv@^0.225.2",
     "@tajpouria/cors": "jsr:@tajpouria/cors@^1.2.1",
     "@types/express": "npm:@types/express@^5.0.0",

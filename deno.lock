@@ -735,6 +735,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@oak/oak@^17.1.0",
+      "jsr:@pedal-pedal/types@~0.1.1",
       "jsr:@std/dotenv@~0.225.2",
       "jsr:@tajpouria/cors@^1.2.1",
       "npm:@types/express@5",
