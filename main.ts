@@ -58,7 +58,7 @@ app.get("/api/blog-deprecated", async (_req, res) => {
 app.get("/api/blog", async (_req, res) => {
   const posts = await getApiPosts();
   if (posts.err) {
-    res.status(500).json({ error: posts.val, , reason: `${Deno.env.get("BLOG_DOMAIN")}/api/blog` });
+    res.status(500).json({ error: posts.val, reason: `${Deno.env.get("BLOG_DOMAIN")}/api/blog` });
     return;
   }
 
