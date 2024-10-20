@@ -51,14 +51,14 @@ app.get("/api/blog-deprecated", async (_req, res) => {
     res.json(data); // Trả dữ liệu đó về cho client
   } catch (error) {
     console.error('Error:', error);
-    res.status(500).json({ error: 'Failed to fetch data', reason: `${Deno.env.get("BLOG_DOMAIN")}/api/blog` }); // Trả về lỗi nếu có
+    res.status(500).json({ error: 'Failed to fetch data' }); // Trả về lỗi nếu có
   }
 });
 
 app.get("/api/blog", async (_req, res) => {
   const posts = await getApiPosts();
   if (posts.err) {
-    res.status(500).json({ error: posts.val });
+    res.status(500).json({ error: posts.val, reason: `${Deno.env.get("BLOG_DOMAIN")}/api/blog` });
     return;
   }
 
