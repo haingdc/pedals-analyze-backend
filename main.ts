@@ -14,6 +14,7 @@ const corsOptions = {
     "https://www.example.com",
     "https://pedals-analyze-joyney.deno.dev",
     "http://localhost:8080",
+    "https://joyney.ngayhe.com",
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type"],
@@ -47,13 +48,11 @@ app.get("/api/blog", async (_req, res) => {
   if (posts.err) {
     res.status(500).json({
       error: posts.val,
-      reason: `${Deno.env.get("BLOG_DOMAIN")}/api/blog`,
     });
     return;
   }
 
   const postsByMonth = countPostsByMonth(posts.val.posts);
-  console.log(postsByMonth);
   res.json(postsByMonth);
 });
 

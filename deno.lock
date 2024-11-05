@@ -3,6 +3,7 @@
   "specifiers": {
     "jsr:@oak/commons@1": "1.0.0",
     "jsr:@oak/oak@^17.1.0": "17.1.0",
+    "jsr:@pedal-pedal/types@~0.1.1": "0.1.1",
     "jsr:@std/assert@1": "1.0.6",
     "jsr:@std/bytes@1": "1.0.2",
     "jsr:@std/bytes@^1.0.2": "1.0.2",
@@ -50,6 +51,9 @@
         "jsr:@std/path",
         "npm:path-to-regexp"
       ]
+    },
+    "@pedal-pedal/types@0.1.1": {
+      "integrity": "c7f593bc1e522f065cda59f5def73432f26df6b546251fc3a9f620b12b641993"
     },
     "@std/assert@1.0.6": {
       "integrity": "1904c05806a25d94fe791d6d883b685c9e2dcd60e4f9fc30f4fc5cf010c72207"
