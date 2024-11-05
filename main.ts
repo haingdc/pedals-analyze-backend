@@ -1,12 +1,10 @@
-import data from "./api/data.json" with { type: "json" };
 // import routeStaticFilesFrom from "./util/routeStaticFilesFrom.ts";
+import "@std/dotenv";
+import cors from "npm:cors";
+import data from "./api/data.json" with { type: "json" };
 // @deno-types="@types/express"
 import express from "npm:express"; // Sử dụng npm: prefix
-import cors from "npm:cors";
-import "@std/dotenv"
-import type { Root } from "./types/post.ts";
-import { getApiPosts } from "./util/posts/index.ts";
-import { countPostsByMonth } from "./util/posts/index.ts";
+import { countPostsByMonth, getApiPosts } from "./util/posts/index.ts";
 
 const app = express();
 
@@ -16,6 +14,7 @@ const corsOptions = {
     "https://www.example.com",
     "https://pedals-analyze-joyney.deno.dev",
     "http://localhost:8080",
+    "https://joyney.ngayhe.com",
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type"],
@@ -44,21 +43,12 @@ app.get("/api/dinosaurs/:dinosaur", (req, res) => {
   }
 });
 
-app.get("/api/blog-deprecated", async (_req, res) => {
-  try {
-    const response = await fetch(`${Deno.env.get("BLOG_DOMAIN")}/api/blog`); // Gọi API từ localhost
-    const data: Root = await response.json(); // Chuyển đổi response thành JSON
-    res.json(data); // Trả dữ liệu đó về cho client
-  } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ error: 'Failed to fetch data' }); // Trả về lỗi nếu có
-  }
-});
-
 app.get("/api/blog", async (_req, res) => {
   const posts = await getApiPosts();
   if (posts.err) {
-    res.status(500).json({ error: posts.val, reason: `${Deno.env.get("BLOG_DOMAIN")}/api/blog` });
+    res.status(500).json({
+      error: posts.val,
+    });
     return;
   }
 
