@@ -1,5 +1,6 @@
 import type { CountPostsByMonth, Post, Root } from "@pedal-pedal/types";
 import { Err, Ok, Result } from "ts-results";
+import { getMonthFromDate } from "../date-time.ts";
 
 /** tính toán số lượng bài viết theo tháng */
 function countPostsByMonth(posts: Post[]): CountPostsByMonth[] {
@@ -11,7 +12,7 @@ function countPostsByMonth(posts: Post[]): CountPostsByMonth[] {
     const monthKey = `${date.getFullYear()}-${
       String(date.getMonth() + 1).padStart(2, "0")
     }`; // YYYY-MM
-    const month = date.toLocaleString("default", { month: "long" });
+    const month = getMonthFromDate(date);
 
     // Tăng số lượng bài viết cho tháng đó
     if (!counts[monthKey]) {

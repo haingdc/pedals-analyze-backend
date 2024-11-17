@@ -56,6 +56,25 @@ app.get("/api/blog", async (_req, res) => {
   res.json(postsByMonth);
 });
 
+app.get("/api/blog/:page", async (req, res) => {
+  const page = parseInt(req.params.page);
+  
+  if (Number.isNaN(page)) {
+    res.status(400).json({
+      error: "Page number must be a number",
+    });
+    return;
+  }
+  const posts = await getApiPosts();
+  if (posts.err) {
+    res.status(500).json({
+      error: posts.val,
+    });
+    return;
+  }
+  res.json(posts.val.posts)
+});
+
 app.listen(8000, () => {
   console.log("Server is running on port 8000");
 });
