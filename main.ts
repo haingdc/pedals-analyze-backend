@@ -15,6 +15,7 @@ const corsOptions = {
     "https://pedals-analyze-joyney.deno.dev",
     "http://localhost:8080",
     "https://joyney.ngayhe.com",
+    "https://caba-58-10-68-86.ngrok-free.app" // sử dụng tunnel ngrok
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type"],
